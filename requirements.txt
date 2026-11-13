@@ -1,0 +1,11 @@
+flask
+sqlalchemy
+pymysql
+google-genai
+PyPDF2
+python-docx
+gunicorn
+cryptography
+python-dotenv 
+
+

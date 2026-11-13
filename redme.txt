@@ -1,0 +1,5 @@
+1 - About TIDB
+
+    highly reliable -  no data loss
+    high scaling 
+    power of distributation architecture

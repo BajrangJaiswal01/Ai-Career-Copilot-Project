@@ -1,0 +1,57 @@
+project name : - AI resume Analyser
+uses :- 
+python
+flask
+database tidb
+opeanai
+
+
+services
+user login/signup
+dashboard
+
+resume pdf/docx
+upload
+
+
+role :-  i want to become aiml engineer
+
+tool : - resume analyse + role
+skills
+newskills
+interview
+project
+
+
+
+
+
+
+with venv 
+pip install flask sqlalchemy pymsql openai PyPDF2
+uses of  :-
+1) flask - web application and router wagera bana sake
+2) sqlalchemy - database handling kar sake , (matlab eek aisi library h jisme pyhon ko use kr hum database se baat kr sakte h binal raw sql ka code likhe)
+    a) create engine - python app and database jo use kr rahe ho usme connection banane k liye use hota h
+    b) sqlalchemy.orm - orm ka mtlb hota jo hum raw code likhenge usko sql query me likhne ki jarurat nhi
+    c) session maker - database k andar hum data ko read kr sake modify ya update kr sake 
+
+3) pymsql -tidb se connection kr sake
+4) opeanai - ai integrate kr sake 
+
+
+2nd part of the code after database url 
+
+engine = create_engine(  # jo data base banaye use connect krega
+    DATABASE_URL, #isi variable me sab database ki cheze h jaise host ussername pswd etc 
+    pool_pre_ping=True    #database connection ko check kro zinda h ki margya before using it take it as a simple safe cycle crash na hojaye
+    connect_args={
+        "ssl" : {   #secure connecion hum database ko banane k liye keh rae hai
+            "ssl":True
+        }
+    }
+) 
+
+
+1-step's - setup
+2-database connection

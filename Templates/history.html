@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Your History</h2>
+
+{% if error %}
+<div class="card">
+    <p style="color: red;">{{ error }}</p>
+</div>
+{% endif %}
+
+{% if not reports %}
+<div class="card">
+    <p>No reports found yet. Analyze your resume on the Dashboard first!</p>
+</div>
+{% endif %}
+
+{% for r in reports %}
+<div class="card">
+    <p><strong>Resume Preview: </strong></p>
+    <p>{{ r.resume[:150] }}...</p>
+
+    <hr>
+
+    <h3>Skills</h3>
+    <ul>
+        {% for s in r.result.get("skills", []) %}
+        <li>{{ s }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Missing Skills</h3>
+    <ul>
+        {% for s in r.result.get("missing_skills", []) %}
+        <li>{{ s }}</li>
+        {% endfor %}
+    </ul>
+
+    <h3>Roadmap</h3>
+    <ul>
+        {% for s in r.result.get("roadmap", []) %}
+        <li>{{ s }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if r.result.get("projects") %}
+    <h3>Recommended Projects</h3>
+    <ul>
+        {% for p in r.result.get("projects", []) %}
+        <li>{{ p }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <h3>Interview Questions List</h3>
+    <ul>
+        {% for s in r.result.get("interview_questions", []) %}
+        <li>{{ s }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endfor %}
+
+{% endblock %}
